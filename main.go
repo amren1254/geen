@@ -26,11 +26,15 @@ func add(c *gin.Context) {
 	}
 	c.JSON(200, a+b)
 }
+func user(c *gin.Context) {
+	c.JSON(200, "Amrendra")
+}
 func main() {
 	log.Println("Initialising the router")
 	fmt.Println("Hello Gin server")
 	router := gin.Default()
 	router.GET("/ping", ping) //1
 	router.GET("add/:a/:b", add)
+	router.GET("/user", user)
 	router.Run()
 }
